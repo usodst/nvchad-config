@@ -8,7 +8,7 @@ local servers = {
   "cssls",
   "clangd",
   "csharp_ls",
-  "terraform_lsp",
+  "terraformls",
   "docker_compose_language_service",
   "dockerls"
 }
