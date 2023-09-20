@@ -23,7 +23,7 @@ end
 lspconfig.powershell_es.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  bundle_path = vim.env.HOME .. "/.local/share/nvim/mason/packages/powershell-editor-services"
+  bundle_path = vim.fn.stdpath('data') .. "/mason/packages/powershell-editor-services"
 }
 
 lspconfig.azure_pipelines_ls.setup {
