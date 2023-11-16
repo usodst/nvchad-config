@@ -4,13 +4,14 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 local servers = {
-  "html",
-  "cssls",
   "clangd",
   "csharp_ls",
-  "terraformls",
+  "cssls",
   "docker_compose_language_service",
-  "dockerls"
+  "dockerls",
+  -- "golangci_lint_ls",
+  "html",
+  "terraformls"
 }
 
 for _, lsp in ipairs(servers) do
@@ -43,4 +44,16 @@ lspconfig.azure_pipelines_ls.setup {
       },
     },
   }
+}
+
+lspconfig.yamlls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+        kubernetes = "*.yaml"
+      },
+    },
+  },
 }
