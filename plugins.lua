@@ -15,23 +15,32 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
- {
-   "williamboman/mason.nvim",
-   opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "html-lsp",
-        "prettier",
-        "stylua",
-        "csharp-language-server",
-        "clangd",
-        "powershell-editor-services",
-        "terraform-ls",
-        "azure-pipelines-language-server",
-        "dockerfile-language-server",
-        "docker-compose-language-service"
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        names = false,
       },
     },
+  },
+  {
+   "williamboman/mason.nvim",
+   opts = {
+    ensure_installed = {
+      "azure-pipelines-language-server",
+      "clangd",
+      "csharp-language-server",
+      "docker-compose-language-service",
+      "dockerfile-language-server",
+      "html-lsp",
+      "lua-language-server",
+      "powershell-editor-services",
+      "prettier",
+      "stylua",
+      "terraform-ls",
+      "yaml-language-server"
+    },
+   },
   }
 }
 return plugins
