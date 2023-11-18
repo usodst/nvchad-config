@@ -4,7 +4,12 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "terraform"
+        "c",
+        "cpp",
+        "c_sharp",
+        "python",
+        "regex",
+        "terraform",
       }
     },
   },
@@ -34,13 +39,26 @@ local plugins = {
       "dockerfile-language-server",
       "html-lsp",
       "lua-language-server",
+      "netcoredbg",
       "powershell-editor-services",
       "prettier",
       "stylua",
       "terraform-ls",
-      "yaml-language-server"
+      "yaml-language-server",
     },
    },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    config = function ()
+      require("custom.dap")
+    end
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    config = function ()
+      require("dapui").setup()
+    end
   }
 }
 return plugins
