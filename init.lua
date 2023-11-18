@@ -2,6 +2,7 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.lsp.set_log_level("off")
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {"terraform", "markdown", "lua", "tf", "sh"},
