@@ -2,31 +2,31 @@ local M = {}
 
 M.nvim_dap = {
   n = {
-    ["<F5>"] = {
+    ["<leader>dc"] = {
       function ()
         require('dap').continue()
       end,
       "Start debugging"
     },
-    ["<F9>"] = {
+    ["<leader>dt"] = {
       function ()
         require('dap').toggle_breakpoint()
       end,
       "Toggle breakpoint"
     },
-    ["<F10>"] = {
+    ["<leader>do"] = {
       function ()
         require('dap').step_over()
       end,
       "Step over"
     },
-    ["<F11>"] = {
+    ["<leader>di"] = {
       function ()
         require('dap').step_into()
       end,
       "Step into"
     },
-    ["<F12>"] = {
+    ["<leader>du"] = {
       function ()
         require('dap').step_out()
       end,
