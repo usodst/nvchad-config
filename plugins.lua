@@ -7,6 +7,8 @@ local plugins = {
         "c",
         "cpp",
         "c_sharp",
+        "dockerfile",
+        "markdown",
         "python",
         "regex",
         "terraform",
