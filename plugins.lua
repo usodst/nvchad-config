@@ -5,8 +5,8 @@ local plugins = {
     opts = {
       ensure_installed = {
         "c",
-        "cpp",
         "c_sharp",
+        "cpp",
         "dockerfile",
         "markdown",
         "python",
