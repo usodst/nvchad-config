@@ -12,6 +12,7 @@ local plugins = {
         "python",
         "regex",
         "terraform",
+        "vimdoc",
       }
     },
   },
