@@ -10,6 +10,7 @@ local servers = {
   "docker_compose_language_service",
   "dockerls",
   -- "golangci_lint_ls",
+  "jedi_language_server",
   "html",
   "terraformls"
 }

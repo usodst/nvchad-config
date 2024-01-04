@@ -41,6 +41,7 @@ local plugins = {
       "docker-compose-language-service",
       "dockerfile-language-server",
       "html-lsp",
+      "jedi-language-server",
       "lua-language-server",
       "netcoredbg",
       "powershell-editor-services",
