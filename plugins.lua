@@ -4,6 +4,7 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        "bash",
         "c",
         "c_sharp",
         "cpp",
@@ -36,6 +37,7 @@ local plugins = {
    opts = {
     ensure_installed = {
       "azure-pipelines-language-server",
+      "bash-language-server",
       "clangd",
       "csharp-language-server",
       "docker-compose-language-service",
