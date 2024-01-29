@@ -34,5 +34,33 @@ M.nvim_dap = {
     },
   }
 }
+M.harpoon = {
+  n = {
+    ["<leader>tm"] = {
+      function ()
+        require('harpoon.ui').toggle_quick_menu()
+      end,
+      "Harpoon toggle menu"
+    },
+    ["<leader>ta"] = {
+      function ()
+        require('harpoon.mark').add_file()
+      end,
+      "Harpoon add file"
+    },
+    ["<leader>tn"] = {
+      function ()
+        require('harpoon.ui').nav_next()
+      end,
+      "Harpoon add file"
+    },
+    ["<leader>tp"] = {
+      function ()
+        require('harpoon.ui').nav_prev()
+      end,
+      "Harpoon add file"
+    }
+  }
+}
 
 return M

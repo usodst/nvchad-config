@@ -119,6 +119,10 @@ local plugins = {
     --     models = '~/path/to/models/directory'
     --   })
     --end
+  },
+  {
+    "ThePrimeagen/harpoon",
+    dependencies = {"nvim-lua/plenary.nvim"}
   }
 }
 return plugins
