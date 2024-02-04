@@ -18,6 +18,20 @@ local plugins = {
     },
   },
   {
+    "nvimtools/none-ls.nvim",
+    opts = function (_, opts)
+      local null_ls = require("null-ls")
+      opts.sources = {
+          null_ls.builtins.completion.spell,
+          null_ls.builtins.formatting.clang_format,
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.terraform_fmt,
+      }
+      return opts
+    end,
+    lazy = false
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -36,6 +50,7 @@ local plugins = {
    "williamboman/mason.nvim",
    opts = {
     ensure_installed = {
+      -- Language servers
       "azure-pipelines-language-server",
       "bash-language-server",
       "clangd",
@@ -51,6 +66,9 @@ local plugins = {
       "stylua",
       "terraform-ls",
       "yaml-language-server",
+
+      -- Formatters
+      "clang-format",
     },
    },
   },
