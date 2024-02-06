@@ -16,23 +16,23 @@ local plugins = {
         "terraform",
         "vimdoc",
         "yaml",
-      }
+      },
     },
   },
   {
     "nvimtools/none-ls.nvim",
-    opts = function (_, opts)
-      local null_ls = require("null-ls")
+    opts = function(_, opts)
+      local null_ls = require "null-ls"
       opts.sources = {
-          null_ls.builtins.completion.spell,
-          null_ls.builtins.formatting.clang_format,
-          null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.terraform_fmt,
-          null_ls.builtins.formatting.yamlfmt,
+        null_ls.builtins.completion.spell,
+        null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.terraform_fmt,
+        null_ls.builtins.formatting.yamlfmt,
       }
       return opts
     end,
-    lazy = false
+    lazy = false,
   },
   {
     "neovim/nvim-lspconfig",
@@ -50,84 +50,82 @@ local plugins = {
     },
   },
   {
-   "williamboman/mason.nvim",
-   opts = {
-    ensure_installed = {
-      -- Language servers
-      "azure-pipelines-language-server",
-      "bash-language-server",
-      "clangd",
-      "csharp-language-server",
-      "docker-compose-language-service",
-      "dockerfile-language-server",
-      "html-lsp",
-      "jedi-language-server",
-      "lua-language-server",
-      "netcoredbg",
-      "powershell-editor-services",
-      "prettier",
-      "stylua",
-      "terraform-ls",
-      "yaml-language-server",
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        -- Language servers
+        "azure-pipelines-language-server",
+        "bash-language-server",
+        "clangd",
+        "csharp-language-server",
+        "docker-compose-language-service",
+        "dockerfile-language-server",
+        "html-lsp",
+        "jedi-language-server",
+        "lua-language-server",
+        "netcoredbg",
+        "powershell-editor-services",
+        "prettier",
+        "stylua",
+        "terraform-ls",
+        "yaml-language-server",
 
-      -- Formatters
-      "clang-format",
-      "yamlfmt",
+        -- Formatters
+        "clang-format",
+        "yamlfmt",
+      },
     },
-   },
   },
   {
     "mfussenegger/nvim-dap",
-    config = function ()
-      require("custom.dap")
-    end
+    config = function()
+      require "custom.dap"
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",
-    config = function ()
+    config = function()
       require("dapui").setup()
-    end
+    end,
   },
   {
-    'gsuuon/model.nvim',
+    "gsuuon/model.nvim",
 
     -- Don't need these if lazy = false
-    cmd = { 'M', 'Model', 'Mchat' },
+    cmd = { "M", "Model", "Mchat" },
     init = function()
-      vim.filetype.add({
+      vim.filetype.add {
         extension = {
-          mchat = 'mchat',
-        }
-      })
+          mchat = "mchat",
+        },
+      }
     end,
-    ft = 'mchat',
+    ft = "mchat",
 
     keys = {
-      {'<C-m>d', ':Mdelete<cr>', mode = 'n'},
-      {'<C-m>s', ':Mselect<cr>', mode = 'n'},
-      {'<C-m><space>', ':Mchat<cr>', mode = 'n' }
+      { "<C-m>d", ":Mdelete<cr>", mode = "n" },
+      { "<C-m>s", ":Mselect<cr>", mode = "n" },
+      { "<C-m><space>", ":Mchat<cr>", mode = "n" },
     },
 
     -- To override defaults add a config field and call setup()
 
-    config = function ()
-      local ollama = require('model.providers.ollama')
-      require('model').setup({
+    config = function()
+      local ollama = require "model.providers.ollama"
+      require("model").setup {
         default_prompt = {
-            provider = ollama,
-            params = {
-              model = 'starling-lm'
-            },
-            builder = function(input)
-              return {
-                prompt = 'GPT4 Correct User: '
-                  .. input
-                  .. '<|end_of_turn|>GPT4 Correct Assistant: ',
-              }
-            end
-          }
-      })
-    end
+          provider = ollama,
+          params = {
+            model = "starling-lm",
+          },
+          builder = function(input)
+            return {
+              prompt = "GPT4 Correct User: " .. input .. "<|end_of_turn|>GPT4 Correct Assistant: ",
+            }
+          end,
+        },
+      }
+    end,
 
     -- config = function()
     --   require('model').setup({
@@ -144,7 +142,7 @@ local plugins = {
   },
   {
     "ThePrimeagen/harpoon",
-    dependencies = {"nvim-lua/plenary.nvim"}
-  }
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 }
 return plugins
