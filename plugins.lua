@@ -15,6 +15,7 @@ local plugins = {
         "regex",
         "terraform",
         "vimdoc",
+        "yaml",
       }
     },
   },
@@ -27,6 +28,7 @@ local plugins = {
           null_ls.builtins.formatting.clang_format,
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.terraform_fmt,
+          null_ls.builtins.formatting.yamlfmt,
       }
       return opts
     end,
@@ -70,6 +72,7 @@ local plugins = {
 
       -- Formatters
       "clang-format",
+      "yamlfmt",
     },
    },
   },
