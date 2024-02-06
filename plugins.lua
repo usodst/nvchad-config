@@ -9,6 +9,7 @@ local plugins = {
         "c_sharp",
         "cpp",
         "dockerfile",
+        "lua",
         "markdown",
         "python",
         "regex",
