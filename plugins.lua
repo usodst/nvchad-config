@@ -25,7 +25,9 @@ local plugins = {
       local null_ls = require "null-ls"
       opts.sources = {
         null_ls.builtins.completion.spell,
+        null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.jq,
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.terraform_fmt,
         null_ls.builtins.formatting.yamlfmt,
@@ -71,6 +73,7 @@ local plugins = {
         "yaml-language-server",
 
         -- Formatters
+        "black",
         "clang-format",
         "yamlfmt",
       },
