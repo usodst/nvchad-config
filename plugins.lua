@@ -26,6 +26,7 @@ local plugins = {
       opts.sources = {
         null_ls.builtins.completion.spell,
         null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.beautysh,
         null_ls.builtins.formatting.clang_format,
         null_ls.builtins.formatting.jq,
         null_ls.builtins.formatting.stylua,
@@ -74,6 +75,7 @@ local plugins = {
 
         -- Formatters
         "black",
+        "beautysh",
         "clang-format",
         "yamlfmt",
       },
