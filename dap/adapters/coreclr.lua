@@ -2,7 +2,9 @@ local M = {}
 
 M.adapter = {
   type = 'executable',
-  command = vim.fn.stdpath('data') .. "/mason/packages/netcoredbg/netcoredbg",
+  command = vim.fs.find({"netcoredbg","netcoredbg.exe"},{
+    path = vim.fn.stdpath('data') .. "/mason/packages/netcoredbg"
+  })[1],
   args = {'--interpreter=vscode'}
 }
 
