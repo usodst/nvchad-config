@@ -24,11 +24,8 @@ local plugins = {
     opts = function(_, opts)
       local null_ls = require "null-ls"
       opts.sources = {
-        null_ls.builtins.completion.spell,
         null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.beautysh,
         null_ls.builtins.formatting.clang_format,
-        null_ls.builtins.formatting.jq,
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.terraform_fmt,
         null_ls.builtins.formatting.yamlfmt,
@@ -148,6 +145,17 @@ local plugins = {
   {
     "ThePrimeagen/harpoon",
     dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    config = function()
+      require("silicon").setup({
+        font = "JetBrainsMonoNL NF=30",
+        theme = "Nord"
+      })
+    end
   },
 }
 return plugins
