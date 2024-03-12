@@ -1,4 +1,4 @@
-local configs = require("plugins.configs.lspconfig")
+local configs = require "plugins.configs.lspconfig"
 local on_attach = configs.on_attach
 local capabilities = configs.capabilities
 
@@ -10,10 +10,9 @@ local servers = {
   "cssls",
   "docker_compose_language_service",
   "dockerls",
-  -- "golangci_lint_ls",
-  "jedi_language_server",
   "html",
-  "terraformls"
+  "jedi_language_server",
+  "terraformls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -26,7 +25,7 @@ end
 lspconfig.powershell_es.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  bundle_path = vim.fn.stdpath('data') .. "/mason/packages/powershell-editor-services"
+  bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services",
 }
 
 lspconfig.azure_pipelines_ls.setup {
@@ -35,17 +34,19 @@ lspconfig.azure_pipelines_ls.setup {
   settings = {
     yaml = {
       schemas = {
-          ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-          "/azure-pipeline*.y*l",
+        ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
+          "*/.Pipeline*/**/*.y*l",
+          "*/.Pipeline*/*.y*l",
+          "*/.pipeline*/**/*.y*l",
+          "*/.pipeline*/*.y*l",
           "/*.azure*",
+          "/azure-pipeline*.y*l",
           "Azure-Pipelines/**/*.y*l",
-          "Pipelines/*.y*l",
-          ".pipelines/*.y*l",
-          ".Pipelines/*.y*l",
+          "Pipelines/**/*.y*l",
         },
       },
     },
-  }
+  },
 }
 
 lspconfig.yamlls.setup {
@@ -54,7 +55,7 @@ lspconfig.yamlls.setup {
   settings = {
     yaml = {
       schemas = {
-        kubernetes = "*.yaml"
+        kubernetes = "*.k8s.yaml",
       },
     },
   },
