@@ -54,7 +54,7 @@ local plugins = {
     opts = {
       ensure_installed = {
         -- Language servers
-        "azure-pipelines-language-server",
+        "azure-pipelines-language-server@0.7.0",
         "bash-language-server",
         "clangd",
         "csharp-language-server",
