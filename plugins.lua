@@ -30,6 +30,13 @@ local plugins = {
         null_ls.builtins.formatting.terraform_fmt,
         null_ls.builtins.formatting.yamlfmt,
       }
+      opts.on_attach = function()
+        vim.api.nvim_create_autocmd("BufWritePost", {
+          callback = function()
+            vim.lsp.buf.format()
+          end,
+        })
+      end
       return opts
     end,
     lazy = false,
@@ -105,9 +112,9 @@ local plugins = {
     ft = "mchat",
 
     keys = {
-      { "<C-m>d", ":Mdelete<cr>", mode = "n" },
-      { "<C-m>s", ":Mselect<cr>", mode = "n" },
-      { "<C-m><space>", ":Mchat<cr>", mode = "n" },
+      { "<C-m>d",       ":Mdelete<cr>", mode = "n" },
+      { "<C-m>s",       ":Mselect<cr>", mode = "n" },
+      { "<C-m><space>", ":Mchat<cr>",   mode = "n" },
     },
 
     -- To override defaults add a config field and call setup()
@@ -151,11 +158,11 @@ local plugins = {
     lazy = true,
     cmd = "Silicon",
     config = function()
-      require("silicon").setup({
+      require("silicon").setup {
         font = "JetBrainsMonoNL NF=30",
-        theme = "Nord"
-      })
-    end
+        theme = "Nord",
+      }
+    end,
   },
 }
 return plugins
