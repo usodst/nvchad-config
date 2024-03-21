@@ -87,9 +87,10 @@ local plugins = {
         "yaml-language-server",
 
         -- Formatters
-        "black",
         "beautysh",
+        "black",
         "clang-format",
+        "csharpier",
         "yamlfmt",
       },
     },
