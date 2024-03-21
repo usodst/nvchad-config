@@ -25,7 +25,16 @@ local plugins = {
       local null_ls = require "null-ls"
       opts.sources = {
         null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.clang_format.with {
+          filetypes = {
+            "c",
+            "cpp",
+            "java",
+            "cuda",
+            "proto",
+          },
+        },
+        null_ls.builtins.formatting.csharpier,
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.terraform_fmt,
         null_ls.builtins.formatting.yamlfmt,
