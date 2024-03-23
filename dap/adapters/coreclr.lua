@@ -1,8 +1,8 @@
 local M = {}
 
 local GetDllFiles = function()
-  local dllFiles = vim.fs.find(function(name, _)
-    return name:match ".*dll$"
+  local dllFiles = vim.fs.find(function(name, path)
+    return name:match ".*dll$" and path:match "bin"
   end, { type = "file", limit = math.huge })
   return dllFiles
 end
