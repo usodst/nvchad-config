@@ -35,6 +35,7 @@ local plugins = {
           },
         },
         null_ls.builtins.formatting.csharpier,
+        null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.terraform_fmt,
         null_ls.builtins.formatting.yamlfmt,
@@ -43,7 +44,9 @@ local plugins = {
         if client.supports_method "textDocument/formatting" then
           vim.api.nvim_create_autocmd("BufWritePost", {
             callback = function()
-              vim.lsp.buf.format()
+              if vim.lsp.buf_is_attached(0, 1) then -- check if none-ls is attached to the current buffer
+                vim.lsp.buf.format { async = false }
+              end
             end,
           })
         end
