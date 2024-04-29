@@ -40,17 +40,6 @@ local plugins = {
         null_ls.builtins.formatting.terraform_fmt,
         null_ls.builtins.formatting.yamlfmt,
       }
-      opts.on_attach = function(client, _)
-        if client.supports_method "textDocument/formatting" then
-          vim.api.nvim_create_autocmd("BufWritePost", {
-            callback = function()
-              if vim.lsp.buf_is_attached(0, 1) then -- check if none-ls is attached to the current buffer
-                vim.lsp.buf.format { async = false }
-              end
-            end,
-          })
-        end
-      end
       return opts
     end,
     lazy = false,
