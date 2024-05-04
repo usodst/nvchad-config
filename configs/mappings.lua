@@ -14,6 +14,18 @@ M.nvim_dap = {
       end,
       "Toggle breakpoint"
     },
+    ["<leader>dl"] = {
+      function ()
+        require('dap').set_breakpoint(nil, nil, vim.fn.input('Log message: '))
+      end,
+      "Set logging breakpoint"
+    },
+    ["<leader>db"] = {
+      function ()
+        require('dap').set_breakpoint(vim.fn.input('Condition: '), nil, nil)
+      end,
+      "Set conditional breakpoint"
+    },
     ["<leader>do"] = {
       function ()
         require('dap').step_over()
