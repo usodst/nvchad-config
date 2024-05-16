@@ -116,9 +116,9 @@ local plugins = {
     ft = "mchat",
 
     keys = {
-      { "<C-m>d",       ":Mdelete<cr>", mode = "n" },
-      { "<C-m>s",       ":Mselect<cr>", mode = "n" },
-      { "<C-m><space>", ":Mchat<cr>",   mode = "n" },
+      { "<C-m>d", ":Mdelete<cr>", mode = "n" },
+      { "<C-m>s", ":Mselect<cr>", mode = "n" },
+      { "<C-m><space>", ":Mchat<cr>", mode = "n" },
     },
 
     -- To override defaults add a config field and call setup()
@@ -130,6 +130,9 @@ local plugins = {
           provider = ollama,
           params = {
             model = "starling-lm",
+          },
+          options = {
+            url = "http://localhost:11434",
           },
           builder = function(input)
             return {
