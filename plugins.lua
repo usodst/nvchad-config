@@ -116,15 +116,16 @@ local plugins = {
     ft = "mchat",
 
     keys = {
-      { "<C-m>d", ":Mdelete<cr>", mode = "n" },
-      { "<C-m>s", ":Mselect<cr>", mode = "n" },
-      { "<C-m><space>", ":Mchat<cr>", mode = "n" },
+      { "<C-m>d",       ":Mdelete<cr>", mode = "n" },
+      { "<C-m>s",       ":Mselect<cr>", mode = "n" },
+      { "<C-m><space>", ":Mchat<cr>",   mode = "n" },
     },
 
     -- To override defaults add a config field and call setup()
 
     config = function()
       local ollama = require "model.providers.ollama"
+      local starters = require "model.prompts.chats"
       require("model").setup {
         default_prompt = {
           provider = ollama,
@@ -139,6 +140,13 @@ local plugins = {
               prompt = "GPT4 Correct User: " .. input .. "<|end_of_turn|>GPT4 Correct Assistant: ",
             }
           end,
+        },
+        chats = {
+          ["ollama:starling"] = vim.tbl_deep_extend("force", starters["ollama:starling"], {
+            options = {
+              url = "http://localhost:11434"
+            },
+          }),
         },
       }
     end,
