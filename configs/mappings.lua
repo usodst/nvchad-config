@@ -3,76 +3,82 @@ local M = {}
 M.nvim_dap = {
   n = {
     ["<leader>dc"] = {
-      function ()
-        require('dap').continue()
+      function()
+        require("dap").continue()
       end,
-      "Start debugging"
+      "Start debugging",
     },
     ["<leader>dt"] = {
-      function ()
-        require('dap').toggle_breakpoint()
+      function()
+        require("dap").toggle_breakpoint()
       end,
-      "Toggle breakpoint"
+      "Toggle breakpoint",
     },
     ["<leader>dl"] = {
-      function ()
-        require('dap').set_breakpoint(nil, nil, vim.fn.input('Log message: '))
+      function()
+        require("dap").set_breakpoint(nil, nil, vim.fn.input "Log message: ")
       end,
-      "Set logging breakpoint"
+      "Set logging breakpoint",
     },
     ["<leader>db"] = {
-      function ()
-        require('dap').set_breakpoint(vim.fn.input('Condition: '), nil, nil)
+      function()
+        require("dap").set_breakpoint(vim.fn.input "Condition: ", nil, nil)
       end,
-      "Set conditional breakpoint"
+      "Set conditional breakpoint",
     },
     ["<leader>do"] = {
-      function ()
-        require('dap').step_over()
+      function()
+        require("dap").step_over()
       end,
-      "Step over"
+      "Step over",
     },
     ["<leader>di"] = {
-      function ()
-        require('dap').step_into()
+      function()
+        require("dap").step_into()
       end,
-      "Step into"
+      "Step into",
     },
     ["<leader>du"] = {
-      function ()
-        require('dap').step_out()
+      function()
+        require("dap").step_out()
       end,
-      "Step out"
+      "Step out",
     },
-  }
+  },
 }
 M.harpoon = {
   n = {
     ["<leader>tm"] = {
-      function ()
-        require('harpoon.ui').toggle_quick_menu()
+      function()
+        require("harpoon.ui").toggle_quick_menu()
       end,
-      "Harpoon toggle menu"
+      "Harpoon toggle menu",
     },
     ["<leader>ta"] = {
-      function ()
-        require('harpoon.mark').add_file()
+      function()
+        require("harpoon.mark").add_file()
       end,
-      "Harpoon add file"
+      "Harpoon add file",
     },
     ["<leader>tn"] = {
-      function ()
-        require('harpoon.ui').nav_next()
+      function()
+        require("harpoon.ui").nav_next()
       end,
-      "Harpoon add file"
+      "Harpoon add file",
     },
     ["<leader>tp"] = {
-      function ()
-        require('harpoon.ui').nav_prev()
+      function()
+        require("harpoon.ui").nav_prev()
       end,
-      "Harpoon add file"
-    }
-  }
+      "Harpoon add file",
+    },
+  },
+}
+M.model = {
+  n = {
+    ["<leader>mc"] = {"<cmd>Mchat<CR>", "Continue chat"},
+    ["<leader>ms"] = {"<cmd>Mchat ollama:starling<CR>", "Start Model.Nvim chat"},
+  },
 }
 
 return M
